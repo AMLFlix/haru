@@ -3,11 +3,9 @@ const question = document.getElementById('question');
 const gif = document.getElementById('gif');
 const noBtn = document.getElementById('no-btn');
 const yesBtn = document.getElementById('yes-btn');
-const timerDisplay = document.getElementById('timer');
 
 let noClickCount = 0;
 let canMove = false;
-let countdownInterval;
 
 const noResponses = [
     { text: "Humm...! Are u sure?", gif: "images/areusure.gif" },
@@ -27,22 +25,6 @@ const moveButton = () => {
     noBtn.style.top = `${randomY}px`;
 };
 
-const startTimer = () => {
-    let timeLeft = 15;
-    timerDisplay.style.display = 'block';
-    timerDisplay.textContent = `${timeLeft}s`;
-
-    countdownInterval = setInterval(() => {
-        timeLeft--;
-        timerDisplay.textContent = `${timeLeft}s`;
-        if (timeLeft <= 0) {
-            clearInterval(countdownInterval);
-            timerDisplay.style.display = 'none';
-            yesBtn.click();
-        }
-    }, 1000);
-};
-
 noBtn.addEventListener('click', () => {
     if (canMove) {
         moveButton();
@@ -53,9 +35,7 @@ noBtn.addEventListener('click', () => {
         gif.src = noResponses[noClickCount].gif;
         
         const currentYesSize = window.getComputedStyle(yesBtn).transform;
-        
-        const matrix = new DOMMatrix(currentYesSize); 
-        
+        const matrix = new DOMMatrix(currentYesSize);
         const currentScale = matrix.m11;
         yesBtn.style.transform = `scale(${currentScale + 0.2})`;
         noBtn.style.transform = `scale(${1 - (noClickCount * 0.1)})`;
@@ -65,7 +45,6 @@ noBtn.addEventListener('click', () => {
         if (noClickCount === noResponses.length) {
             canMove = true;
             moveButton();
-            startTimer();
         }
     }
 });
@@ -84,9 +63,6 @@ noBtn.addEventListener('mouseover', () => {
 });
 
 yesBtn.addEventListener('click', () => {
-    clearInterval(countdownInterval);
-    timerDisplay.style.display = 'none';
-
     question.innerHTML = "Heehee ..!! I love u too &lt;3 Arbwarrrrr Mwahhhhh";
     gif.src = "images/peach-goma-kiss-peach-and-goma.gif";
     

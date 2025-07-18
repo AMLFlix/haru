@@ -34,21 +34,6 @@ body {
     max-width: 420px;
 }
 
-#timer {
-    display: none;
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #ff74a4;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 18px;
-    font-weight: 700;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
 .gif {
     width: 180px;
     height: 180px;
@@ -71,19 +56,18 @@ body {
     gap: 15px;
 }
 
-/* --- "Cute Outline" Button Style --- */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     padding: 12px 30px;
-    border: 3px solid; /* Stroke အတွက် Border */
+    border: 3px solid;
     border-radius: 50px;
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
-    background-color: #fff; /* နောက်ခံအရောင် အဖြူ */
+    background-color: #fff;
     transition: all 0.2s ease-in-out;
 }
 
@@ -91,17 +75,15 @@ body {
     transform: scale(0.97);
 }
 
-/* Yes Button Style အသစ် (ပန်းရောင် Stroke နှင့် Text) */
 #yes-btn {
     border-color: #ff74a4;
     color: #ff74a4;
 }
 #yes-btn:hover {
-    background-color: #ff74a4; /* Hover လုပ်ရင် အရောင်ပြည့်သွားမည် */
+    background-color: #ff74a4;
     color: #fff;
 }
 
-/* No Button Style အသစ် */
 #no-btn {
     border-color: #ff9d8f;
     color: #ff9d8f;
@@ -111,7 +93,6 @@ body {
     background-color: #ff9d8f;
     color: #fff;
 }
-
 
 .creator-credit {
     position: fixed;
