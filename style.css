@@ -1,9 +1,7 @@
-/* --- Final Cute Pink Theme --- */
-
-@keyframes float {
-    0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
-    50% { opacity: 0.8; }
-    100% { transform: translateY(-1000px) rotate(360deg); opacity: 0; }
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 body {
@@ -13,102 +11,126 @@ body {
     min-height: 100vh;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     margin: 0;
-    background-color: #ffe8f0; /* Soft pink base color */
+    padding: 10px;
+    background: linear-gradient(-45deg, #fec5e5, #fda4b8, #ffb2a7, #ffd7a1);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
     overflow: hidden;
-    position: relative;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
 }
-
-/* --- Peach-Goma Watermark Background --- */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/peach-goma-bg.png');
-    background-size: 200px; /* Adjust size as needed */
-    opacity: 0.08; /* Watermark effect */
-    animation: float 50s linear infinite alternate; /* Slow floating effect */
-}
-
 
 .container {
     text-align: center;
-    padding: 30px 40px;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(12px);
-    border-radius: 30px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(193, 85, 129, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     position: relative; 
-    width: 90%;
-    max-width: 400px;
-    z-index: 10;
+    width: 100%;
+    max-width: 420px;
+}
+
+#timer {
+    display: none;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff74a4;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .gif {
     width: 180px;
     height: 180px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     object-fit: contain;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .question {
     font-size: 24px;
     font-weight: 700;
-    color: #5c2a42; /* Darker pink for text */
-    margin-bottom: 30px;
+    color: #4b415d;
+    margin-bottom: 25px;
+    line-height: 1.4;
 }
 
 .btn-group {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
 }
 
-/* --- "Claymorphism" 3D Button Style --- */
+/* --- "Cute Outline" Button Style --- */
 .btn {
-    padding: 15px 30px;
-    border: none;
-    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 30px;
+    border: 3px solid; /* Stroke အတွက် Border */
+    border-radius: 50px;
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
+    background-color: #fff; /* နောက်ခံအရောင် အဖြူ */
     transition: all 0.2s ease-in-out;
-    background: #fdf5f8;
-    color: #5c2a42;
-    box-shadow: -5px -5px 10px #ffffff, 5px 5px 10px #e4d3da;
-}
-
-.btn:hover {
-    box-shadow: -2px -2px 5px #ffffff, 2px 2px 5px #e4d3da;
 }
 
 .btn:active {
-    box-shadow: inset -2px -2px 5px #ffffff, inset 2px 2px 5px #e4d3da;
-    transform: scale(0.98);
+    transform: scale(0.97);
 }
 
-#no-btn {
-    transition: all 0.3s ease-in-out;
+/* Yes Button Style အသစ် (ပန်းရောင် Stroke နှင့် Text) */
+#yes-btn {
+    border-color: #ff74a4;
+    color: #ff74a4;
 }
+#yes-btn:hover {
+    background-color: #ff74a4; /* Hover လုပ်ရင် အရောင်ပြည့်သွားမည် */
+    color: #fff;
+}
+
+/* No Button Style အသစ် */
+#no-btn {
+    border-color: #ff9d8f;
+    color: #ff9d8f;
+    transition: all 0.2s ease-in-out, top 0.4s ease-in-out, left 0.4s ease-in-out;
+}
+#no-btn:hover {
+    background-color: #ff9d8f;
+    color: #fff;
+}
+
 
 .creator-credit {
     position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 12px;
-    color: #5c2a42;
-    opacity: 0.5;
-    z-index: 20;
+    top: 15px;
+    left: 15px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    opacity: 0.8;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.1);
+    padding: 5px 10px;
+    border-radius: 10px;
 }
 
 @media (max-width: 600px) {
-    .container { padding: 20px; }
-    .gif { width: 150px; height: 150px; }
-    .question { font-size: 20px; }
+    .container { padding: 20px 15px; }
+    .gif { width: clamp(140px, 40vw, 160px); height: clamp(140px, 40vw, 160px); }
+    .question { font-size: clamp(18px, 5vw, 22px); }
     .btn { padding: 12px 25px; font-size: 16px; }
+    .creator-credit { font-size: 10px; padding: 3px 8px; }
 }
